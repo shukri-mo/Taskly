@@ -1,14 +1,13 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { motion } from 'framer-motion';
 import {
   QueueListIcon,
   CheckCircleIcon,
   ClockIcon,
   FunnelIcon,
 } from '@heroicons/react/24/outline';
-import { setFilter, setSortBy } from '../../store/slices/tasksSlice';
-
+import { setFilter, setSortBy } from '../store/slices/tasksSlice'
+import { motion } from 'framer-motion';
 const TaskFilters = () => {
   const dispatch = useDispatch();
   const { filter, sortBy } = useSelector(state => state.tasks);
