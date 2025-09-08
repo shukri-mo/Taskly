@@ -106,4 +106,17 @@ A modern, feature-rich task management application built with React and Redux To
 4. **Search Efficiency**: Use the search bar to quickly find specific tasks
 5. **Mobile Friendly**: Access your tasks on any device with the responsive design
 
-## Future Enhancements
+## 🚀 Future Enhancements
+
+Here are some potential improvements and features planned for Taskly:
+
+- **Recurring Tasks:** Add support for daily, weekly, or monthly recurring tasks.  
+- **Notifications & Reminders:** Push notifications or email reminders for upcoming deadlines.  
+- **Drag & Drop:** Allow users to reorder tasks and projects with drag-and-drop functionality.  
+- **Tags & Labels:** Add customizable tags or labels for better task organization.  
+- **Subtasks:** Support for breaking tasks into smaller subtasks.  
+- **Task Comments:** Enable users to add notes or comments to each task.  
+- **User Profiles & Authentication:** Expand login system with user profiles and settings.  
+- **Export & Import:** Export tasks to CSV or import from other task management apps.  
+- **Analytics & Reports:** Show charts or summaries of completed, pending, and overdue tasks.  
+- **Dark Mode Enhancements:** Add scheduling for dark/light mode based on system settings.  
