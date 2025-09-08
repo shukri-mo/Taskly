@@ -1,12 +1,17 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+
+// uiSlice.js
+const savedUI = JSON.parse(localStorage.getItem("taskManager_ui")) || {};
+
 const initialState = {
-  darkMode: false,
-  sidebarOpen: true,
+  darkMode: savedUI.darkMode ?? false,   // respects true/false properly
+  sidebarOpen: savedUI.sidebarOpen ?? false,
   showTaskModal: false,
   editingTask: null,
   showStatsPanel: true,
 };
+
 
 const uiSlice = createSlice({
   name: 'ui',
@@ -34,9 +39,12 @@ const uiSlice = createSlice({
       state.showStatsPanel = !state.showStatsPanel;
     },
     
-    loadUIState: (state, action) => {
-      return { ...state, ...action.payload };
-    },
+   // uiSlice.js
+loadUIState: (state, action) => {
+  state.darkMode = action.payload.darkMode ?? state.darkMode;
+  state.sidebarOpen = action.payload.sidebarOpen ?? state.sidebarOpen;
+},
+
   },
 });
 

@@ -1,14 +1,16 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+const savedTasks = JSON.parse(localStorage.getItem("taskManager_tasks")) ?? [];
+const savedProjects = JSON.parse(localStorage.getItem("taskManager_projects")) ?? [];
+
 const initialState = {
-  tasks: [],
-  projects: ['Personal', 'Work', 'Shopping', 'Health'],
-  filter: 'all', // all, active, completed
+  tasks: savedTasks,
+  projects: savedProjects,
+   filter: 'all', // all, active, completed
   selectedProject: 'all',
   searchQuery: '',
   sortBy: 'dueDate', // dueDate, priority, created
 };
-
 const tasksSlice = createSlice({
   name: 'tasks',
   initialState,
@@ -82,10 +84,10 @@ const tasksSlice = createSlice({
       }
     },
     
-    loadTasks: (state, action) => {
-      state.tasks = action.payload.tasks || [];
-      state.projects = action.payload.projects || state.projects;
-    },
+  loadTasks: (state, action) => {
+  state.tasks = action.payload.tasks || [];
+  state.projects = action.payload.projects || [];
+},
   },
 });
 
