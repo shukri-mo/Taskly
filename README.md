@@ -1,4 +1,5 @@
-# Task Management Application
+
+# Taskly 📝 – Task Management Application
 
 A modern, feature-rich task management application built with React and Redux Toolkit. This application provides a comprehensive solution for organizing, tracking, and managing tasks with a beautiful, responsive interface.
 
@@ -119,4 +120,4 @@ Here are some potential improvements and features planned for Taskly:
 - **User Profiles & Authentication:** Expand login system with user profiles and settings.  
 - **Export & Import:** Export tasks to CSV or import from other task management apps.  
 - **Analytics & Reports:** Show charts or summaries of completed, pending, and overdue tasks.  
-- **Dark Mode Enhancements:** Add scheduling for dark/light mode based on system settings.  
+
