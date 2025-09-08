@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { motion, AnimatePresence } from 'framer-motion';
+import {motion,AnimatePresence } from 'framer-motion';
 import { XMarkIcon, CalendarIcon, TagIcon } from '@heroicons/react/24/outline';
-import { addTask, updateTask } from '../../store/slices/tasksSlice';
-import { closeTaskModal } from '../../store/slices/uiSlice';
+import { addTask, updateTask } from '../store/slices/tasksSlice';
+import { closeTaskModal } from '../store/slices/uiSlice';
 
 const TaskModal = () => {
   const dispatch = useDispatch();
