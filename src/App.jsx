@@ -1,13 +1,13 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { store } from '../store/store';
+import { store } from './store/store';
 import { useLocalStorage } from './useLocalStorage';
 import Sidebar from './Layout/Sidebar'
 import Header from './Layout/Header';
 import StatsPanel from './Dashboard/StatsPanel';
 import TaskFilters from './Dashboard/TaskFilters';
 import TaskList from './Tasks/TaskList';
-import TaskModal from '../src/TaskModal';
+import TaskModal from './Tasks/TaskModal';
 import LoginModal from './Auth/LoginModal';
 
 const AppContent = () => {
