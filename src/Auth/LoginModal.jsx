@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { motion, AnimatePresence } from 'framer-motion';
 import { XMarkIcon, UserIcon, LockClosedIcon } from '@heroicons/react/24/outline';
-import { login, closeLoginModal } from '../../store/slices/authSlice';
+import { login, closeLoginModal } from '../store/slices/authSlice';
 
 const LoginModal = () => {
   const dispatch = useDispatch();
