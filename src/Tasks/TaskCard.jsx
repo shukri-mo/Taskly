@@ -1,6 +1,5 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { motion } from 'framer-motion';
 import {
   CheckCircleIcon,
   ClockIcon,
@@ -9,9 +8,10 @@ import {
   TrashIcon,
   ExclamationTriangleIcon,
 } from '@heroicons/react/24/outline';
+import { motion } from 'framer-motion';
 import { CheckCircleIcon as CheckCircleIconSolid } from '@heroicons/react/24/solid';
-import { toggleTask, deleteTask } from '../../store/slices/tasksSlice';
-import { openTaskModal } from '../../store/slices/uiSlice';
+import { toggleTask, deleteTask } from '../store/slices/tasksSlice'
+import { openTaskModal } from '../store/slices/uiSlice';
 const TaskCard = ({ task, index }) => {
   const dispatch = useDispatch();
 
