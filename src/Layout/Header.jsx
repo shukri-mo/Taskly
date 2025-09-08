@@ -1,6 +1,5 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { motion } from 'framer-motion';
 import {
   Bars3Icon,
   MagnifyingGlassIcon,
@@ -9,9 +8,10 @@ import {
   MoonIcon,
   UserCircleIcon,
 } from '@heroicons/react/24/outline';
-import { toggleSidebar, toggleDarkMode, openTaskModal } from '../../store/slices/uiSlice';
-import { openLoginModal, logout } from '../../store/slices/authSlice';
-import { setSearchQuery } from '../../store/slices/tasksSlice';
+import { motion } from 'framer-motion';
+import { toggleSidebar, toggleDarkMode, openTaskModal } from '../store/slices/uiSlice';
+import { openLoginModal, logout } from '../store/slices/authSlice';
+import { setSearchQuery } from '../store/slices/tasksSlice';
 
 const Header = () => {
   const dispatch = useDispatch();

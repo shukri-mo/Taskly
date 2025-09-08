@@ -9,8 +9,8 @@ import {
   Cog6ToothIcon,
   XMarkIcon,
 } from '@heroicons/react/24/outline';
-import { setSelectedProject, addProject } from '../../store/slices/tasksSlice';
-import { toggleSidebar } from '../../store/slices/uiSlice';
+import { setSelectedProject, addProject } from '../store/slices/tasksSlice.js';
+import { toggleSidebar } from '../store/slices/uiSlice';
 
 const Sidebar = () => {
   const dispatch = useDispatch();
@@ -54,7 +54,7 @@ const Sidebar = () => {
               {/* Header */}
               <div className="flex items-center justify-between p-6 border-b border-gray-200 dark:border-gray-700">
                 <h2 className="text-xl font-bold text-gray-800 dark:text-white">
-                  Task Manager
+                Taskly
                 </h2>
                 <button
                   onClick={() => dispatch(toggleSidebar())}
