@@ -1,4 +1,5 @@
-# Task Management Application
+
+# Taskly 📝 – Task Management Application
 
 A modern, feature-rich task management application built with React and Redux Toolkit. This application provides a comprehensive solution for organizing, tracking, and managing tasks with a beautiful, responsive interface.
 
