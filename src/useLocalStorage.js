@@ -1,57 +1,36 @@
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { loadTasks } from '../store/slices/tasksSlice';
-import { loadUIState } from '../store/slices/uiSlice';
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { loadTasks } from "./store/slices/tasksSlice";
+import { loadUIState } from "./store/slices/uiSlice";
 
 export const useLocalStorage = () => {
   const dispatch = useDispatch();
-  const tasks = useSelector(state => state.tasks.tasks);
-  const projects = useSelector(state => state.tasks.projects);
-  const darkMode = useSelector(state => state.ui.darkMode);
-  const sidebarOpen = useSelector(state => state.ui.sidebarOpen);
+  const { tasks, projects } = useSelector((state) => state.tasks);
+  const { darkMode, sidebarOpen } = useSelector((state) => state.ui);
 
-  // Load data from localStorage on mount
+  // Load from localStorage on mount
   useEffect(() => {
-    const savedTasks = localStorage.getItem('taskManager_tasks');
-    const savedProjects = localStorage.getItem('taskManager_projects');
-    const savedUI = localStorage.getItem('taskManager_ui');
+    const savedTasks = JSON.parse(localStorage.getItem("taskManager_tasks")) || [];
+    const savedProjects = JSON.parse(localStorage.getItem("taskManager_projects")) || [];
+    const savedUI = JSON.parse(localStorage.getItem("taskManager_ui")) || {};
 
-    if (savedTasks || savedProjects) {
-      dispatch(loadTasks({
-        tasks: savedTasks ? JSON.parse(savedTasks) : [],
-        projects: savedProjects ? JSON.parse(savedProjects) : undefined,
-      }));
-    }
-
-    if (savedUI) {
-      dispatch(loadUIState(JSON.parse(savedUI)));
-    }
+    dispatch(loadTasks({ tasks: savedTasks, projects: savedProjects }));
+    dispatch(loadUIState(savedUI));
   }, [dispatch]);
 
-  // Save tasks to localStorage
+  // Save everything whenever state changes
   useEffect(() => {
-    localStorage.setItem('taskManager_tasks', JSON.stringify(tasks));
-  }, [tasks]);
+    localStorage.setItem("taskManager_tasks", JSON.stringify(tasks));
+    localStorage.setItem("taskManager_projects", JSON.stringify(projects));
+    localStorage.setItem(
+      "taskManager_ui",
+      JSON.stringify({ darkMode, sidebarOpen })
+    );
+  
+  }, [tasks, projects, darkMode, sidebarOpen]);
 
-  // Save projects to localStorage
+  // Apply dark mode class
   useEffect(() => {
-    localStorage.setItem('taskManager_projects', JSON.stringify(projects));
-  }, [projects]);
-
-  // Save UI state to localStorage
-  useEffect(() => {
-    localStorage.setItem('taskManager_ui', JSON.stringify({
-      darkMode,
-      sidebarOpen,
-    }));
-  }, [darkMode, sidebarOpen]);
-
-  // Apply dark mode to document
-  useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
+    document.documentElement.classList.toggle("dark", darkMode);
   }, [darkMode]);
 };
